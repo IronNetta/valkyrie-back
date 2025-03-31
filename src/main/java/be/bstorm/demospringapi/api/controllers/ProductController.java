@@ -24,6 +24,7 @@ import java.io.IOException;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/product")
+@CrossOrigin(origins = "http://localhost:4200")
 @Tag(name = "Produit", description = "API pour gérer les produits") // Regroupe les endpoints dans Swagger
 public class ProductController {
 
@@ -67,7 +68,7 @@ public class ProductController {
             summary = "Créer un nouveau produit",
             description = "Ajoute un nouveau produit à la base de données."
     )
-    @PreAuthorize("isAuthenticated()")
+    @PreAuthorize("hasAuthority('ADMIN' or 'COMERCIAL')")
     @PostMapping
     public ResponseEntity<Void> createProduct(
             @Valid @RequestBody ProductForm form
@@ -80,7 +81,7 @@ public class ProductController {
             summary = "Mettre à jour un produit",
             description = "Modifie les informations d'un produit existant en fonction de son ID."
     )
-    @PreAuthorize("isAuthenticated()")
+    @PreAuthorize("hasAuthority('ADMIN' or 'COMERCIAL')")
     @PutMapping("/{id}")
     public ResponseEntity<Void> updateProduct(
             @Parameter(description = "ID du produit à modifier", example = "1")
@@ -95,7 +96,7 @@ public class ProductController {
             summary = "Supprimer un produit",
             description = "Supprime un produit en fonction de son ID."
     )
-    @PreAuthorize("isAuthenticated()")
+    @PreAuthorize("hasAuthority('ADMIN' or 'COMERCIAL')")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteProduct(
             @Parameter(description = "ID du produit à supprimer", example = "1")

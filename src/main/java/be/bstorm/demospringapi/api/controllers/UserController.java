@@ -12,6 +12,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,6 +21,7 @@ import java.util.Map;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/user")
+@CrossOrigin(origins = "http://localhost:4200")
 @Tag(name = "Utilisateur", description = "API pour gérer les utilisateurs") // Regroupe les endpoints dans Swagger
 public class UserController {
 
@@ -29,6 +31,7 @@ public class UserController {
             summary = "Récupérer tous les utilisateurs",
             description = "Retourne une liste paginée et filtrée des utilisateurs en fonction des paramètres fournis."
     )
+    @PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping
     public ResponseEntity<List<UserDTO>> getAllUsers(
             @Parameter(description = "Filtres dynamiques sous forme de clé-valeur")
@@ -43,6 +46,10 @@ public class UserController {
             @Parameter(description = "Champ sur lequel trier les résultats", example = "lastName")
             @RequestParam(required = false, defaultValue = "lastName") String sort
     ) {
+        var authentication = SecurityContextHolder.getContext().getAuthentication();
+        System.out.println("User: " + authentication.getName());
+        System.out.println("Authorities: " + authentication.getAuthorities());
+
         List<SearchParam<User>> searchParams = SearchParam.create(params);
         List<UserDTO> users = userService.getUsers(
                         searchParams,

@@ -7,7 +7,7 @@ public record UserDTO(
         Long id,
         UserRole role,
         String fullName,
-        String email // Ajout de l'email pour correspondre au Frontend
+        String email
 ) {
     public static UserDTO fromUser(User user) {
         String fullName = user.getLastName() + " " + user.getFirstName();
