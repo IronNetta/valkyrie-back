@@ -84,26 +84,26 @@ public class DataInitializer implements CommandLineRunner {
     private void Produit() {
         if (productRepository.count() == 0) {
             List<Product> products = List.of(
-                    new Product("Banndana","Fruit", "https://www.google.com", new BigDecimal(10)),
-                    new Product("Banana", "Fruit", "https://www.google.com", new BigDecimal(10)),
-                    new Product("Apple", "Fruit", "https://www.google.com", new BigDecimal(12)),
-                    new Product("Orange", "Fruit", "https://www.google.com", new BigDecimal(8)),
-                    new Product("Mango", "Fruit", "https://www.google.com", new BigDecimal(15)),
-                    new Product("Strawberry", "Fruit", "https://www.google.com", new BigDecimal(20)),
-                    new Product("Laptop", "Electronics", "https://www.google.com", new BigDecimal(1200)),
-                    new Product("Smartphone", "Electronics", "https://www.google.com", new BigDecimal(900)),
-                    new Product("Headphones", "Electronics", "https://www.google.com", new BigDecimal(150)),
-                    new Product("Smartwatch", "Electronics", "https://www.google.com", new BigDecimal(250)),
-                    new Product("Bluetooth Speaker", "Electronics", "https://www.google.com", new BigDecimal(100)),
-                    new Product("T-shirt", "Clothing", "https://www.google.com", new BigDecimal(25)),
-                    new Product("Jeans", "Clothing", "https://www.google.com", new BigDecimal(50)),
-                    new Product("Sneakers", "Clothing", "https://www.google.com", new BigDecimal(80)),
-                    new Product("Backpack", "Accessories", "https://www.google.com", new BigDecimal(45)),
-                    new Product("Sunglasses", "Accessories", "https://www.google.com", new BigDecimal(60)),
-                    new Product("Gaming Mouse", "Accessories", "https://www.google.com", new BigDecimal(35)),
-                    new Product("Wireless Keyboard", "Accessories", "https://www.google.com", new BigDecimal(70)),
-                    new Product("Desk Chair", "Furniture", "https://www.google.com", new BigDecimal(200)),
-                    new Product("Standing Desk", "Furniture", "https://www.google.com", new BigDecimal(500))
+                    new Product("Banndana","Fruit", "https://i.pinimg.com/474x/03/a5/14/03a514f0b4332a6c1ebdf970b21b86b0.jpg", new BigDecimal(10)),
+                    new Product("Banana", "Fruit", "https://i.pinimg.com/474x/03/a5/14/03a514f0b4332a6c1ebdf970b21b86b0.jpg", new BigDecimal(10)),
+                    new Product("Apple", "Fruit", "https://i.pinimg.com/474x/03/a5/14/03a514f0b4332a6c1ebdf970b21b86b0.jpg", new BigDecimal(12)),
+                    new Product("Orange", "Fruit", "https://i.pinimg.com/474x/03/a5/14/03a514f0b4332a6c1ebdf970b21b86b0.jpg", new BigDecimal(8)),
+                    new Product("Mango", "Fruit", "https://i.pinimg.com/474x/03/a5/14/03a514f0b4332a6c1ebdf970b21b86b0.jpg", new BigDecimal(15)),
+                    new Product("Strawberry", "Fruit", "https://i.pinimg.com/474x/03/a5/14/03a514f0b4332a6c1ebdf970b21b86b0.jpg", new BigDecimal(20)),
+                    new Product("Laptop", "Electronics", "https://i.pinimg.com/474x/03/a5/14/03a514f0b4332a6c1ebdf970b21b86b0.jpg", new BigDecimal(1200)),
+                    new Product("Smartphone", "Electronics", "https://i.pinimg.com/474x/03/a5/14/03a514f0b4332a6c1ebdf970b21b86b0.jpg", new BigDecimal(900)),
+                    new Product("Headphones", "Electronics", "https://i.pinimg.com/474x/03/a5/14/03a514f0b4332a6c1ebdf970b21b86b0.jpg", new BigDecimal(150)),
+                    new Product("Smartwatch", "Electronics", "https://i.pinimg.com/474x/03/a5/14/03a514f0b4332a6c1ebdf970b21b86b0.jpg", new BigDecimal(250)),
+                    new Product("Bluetooth Speaker", "Electronics", "https://i.pinimg.com/474x/03/a5/14/03a514f0b4332a6c1ebdf970b21b86b0.jpg", new BigDecimal(100)),
+                    new Product("T-shirt", "Clothing", "https://i.pinimg.com/474x/03/a5/14/03a514f0b4332a6c1ebdf970b21b86b0.jpg", new BigDecimal(25)),
+                    new Product("Jeans", "Clothing", "https://i.pinimg.com/474x/03/a5/14/03a514f0b4332a6c1ebdf970b21b86b0.jpg", new BigDecimal(50)),
+                    new Product("Sneakers", "Clothing", "https://i.pinimg.com/474x/03/a5/14/03a514f0b4332a6c1ebdf970b21b86b0.jpg", new BigDecimal(80)),
+                    new Product("Backpack", "Accessories", "https://i.pinimg.com/474x/03/a5/14/03a514f0b4332a6c1ebdf970b21b86b0.jpg", new BigDecimal(45)),
+                    new Product("Sunglasses", "Accessories", "https://i.pinimg.com/474x/03/a5/14/03a514f0b4332a6c1ebdf970b21b86b0.jpg", new BigDecimal(60)),
+                    new Product("Gaming Mouse", "Accessories", "https://i.pinimg.com/474x/03/a5/14/03a514f0b4332a6c1ebdf970b21b86b0.jpg", new BigDecimal(35)),
+                    new Product("Wireless Keyboard", "Accessories", "https://i.pinimg.com/474x/03/a5/14/03a514f0b4332a6c1ebdf970b21b86b0.jpg", new BigDecimal(70)),
+                    new Product("Desk Chair", "Furniture", "https://i.pinimg.com/474x/03/a5/14/03a514f0b4332a6c1ebdf970b21b86b0.jpg", new BigDecimal(200)),
+                    new Product("Standing Desk", "Furniture", "https://i.pinimg.com/474x/03/a5/14/03a514f0b4332a6c1ebdf970b21b86b0.jpg", new BigDecimal(500))
 
             );
             productRepository.saveAll(products);

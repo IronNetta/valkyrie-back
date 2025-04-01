@@ -38,7 +38,7 @@ public class ProductController {
     public ResponseEntity<List<ProductDTO>> getAll(
             @RequestParam(required = false) Map<String, String> params,
             @RequestParam(required = false, defaultValue = "0") int page,
-            @RequestParam(required = false, defaultValue = "10") int size,
+            @RequestParam(required = false, defaultValue = "3000") int size,
             @RequestParam(required = false, defaultValue = "id") String sort
     ) {
         List<SearchParam<Product>> searchParams = SearchParam.create(params);
@@ -68,7 +68,7 @@ public class ProductController {
             summary = "Créer un nouveau produit",
             description = "Ajoute un nouveau produit à la base de données."
     )
-    @PreAuthorize("hasAuthority('ADMIN' or 'COMERCIAL')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     @PostMapping
     public ResponseEntity<Void> createProduct(
             @Valid @RequestBody ProductForm form
