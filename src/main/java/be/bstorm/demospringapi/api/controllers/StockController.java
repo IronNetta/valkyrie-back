@@ -87,7 +87,7 @@ public class StockController {
             summary = "Supprimer un stock",
             description = "Supprime un stock de la base de données en fonction de son ID."
     )
-    @PreAuthorize("hasRole('COMERCIAL')")
+    @PreAuthorize("hasRole('COMERCIAL')" )
     @DeleteMapping("/{id}")
     public ResponseEntity<StockDTO> deleteStock(
             @Parameter(description = "ID du stock à supprimer", example = "1")
