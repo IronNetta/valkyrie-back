@@ -21,10 +21,12 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/stock")
+@CrossOrigin(origins = "http://localhost:4200")
 @Tag(name = "Stock", description = "API pour gérer les stocks") // Regroupe les endpoints dans Swagger
 public class StockController {
 
@@ -50,7 +52,7 @@ public class StockController {
                         PageRequest.of(page, size, Sort.by(Sort.Direction.ASC, sort))
                 ).stream()
                 .map(StockDTO::fromStock)
-                .toList();
+                .collect(Collectors.toList());
 
         return ResponseEntity.ok(stock);
     }
