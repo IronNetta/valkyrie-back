@@ -1,7 +1,5 @@
 package be.bstorm.demospringapi.api.models.security.dtos;
 
-
-
 import be.bstorm.demospringapi.dl.entities.Warehouse;
 
 public record WarehouseDTO(

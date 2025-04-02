@@ -24,6 +24,7 @@ import java.util.Map;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/warehouse")
+@CrossOrigin(origins = "http://localhost:4200")
 @Tag(name = "Warehouse", description = "Gestion des entrepôts") // Regroupe les endpoints sous "Warehouse"
 public class WarehouseController {
 

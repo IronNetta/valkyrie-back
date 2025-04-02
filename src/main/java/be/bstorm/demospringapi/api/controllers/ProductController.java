@@ -81,7 +81,7 @@ public class ProductController {
             summary = "Mettre à jour un produit",
             description = "Modifie les informations d'un produit existant en fonction de son ID."
     )
-    @PreAuthorize("hasAuthority('ADMIN' or 'COMERCIAL')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     @PutMapping("/{id}")
     public ResponseEntity<Void> updateProduct(
             @Parameter(description = "ID du produit à modifier", example = "1")
@@ -96,7 +96,7 @@ public class ProductController {
             summary = "Supprimer un produit",
             description = "Supprime un produit en fonction de son ID."
     )
-    @PreAuthorize("hasAuthority('ADMIN' or 'COMERCIAL')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteProduct(
             @Parameter(description = "ID du produit à supprimer", example = "1")
