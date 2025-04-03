@@ -132,11 +132,13 @@ public class StockController {
             summary = "Récupérer les stocks faibles",
             description = "Retourne la liste des stocks sous un certain seuil pour un utilisateur."
     )
-    @PreAuthorize("hasRole('COMERCIAL')")
+    @PreAuthorize("hasAuthority('COMERCIAL')")
     @GetMapping("/low")
-    public ResponseEntity<List<Stock>> getLowStock(@RequestParam(defaultValue = "5") int threshold,
+    public ResponseEntity<List<StockDTO>> getLowStock(@RequestParam(defaultValue = "5") int threshold,
                                    @AuthenticationPrincipal User user) {
         List<Stock>stock = stockService.getLowStock(threshold, user.getId());
-        return ResponseEntity.ok(stock);
+        List<StockDTO>dtos = stock.stream()
+                .map(StockDTO::fromStock).toList();
+        return ResponseEntity.ok(dtos);
     }
 }
