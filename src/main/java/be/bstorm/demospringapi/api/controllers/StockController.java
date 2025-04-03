@@ -119,13 +119,14 @@ public class StockController {
     )
     @PreAuthorize("isAuthenticated()")
     @GetMapping("/stock/user")
-    public ResponseEntity<List<Stock>> getStockByUser(
+    public ResponseEntity<List<StockDTO>> getStockByUser(
 
             @AuthenticationPrincipal User user
     ) {
         List<Stock> stock = stockService.getStockByUser(user.getId());
-
-        return ResponseEntity.ok(stock);
+        List<StockDTO>dtos = stock.stream()
+                .map(StockDTO::fromStock).toList();
+        return ResponseEntity.ok(dtos);
     }
 
     @Operation(
