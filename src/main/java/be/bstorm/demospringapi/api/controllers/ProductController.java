@@ -24,7 +24,6 @@ import java.io.IOException;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/product")
-@CrossOrigin(origins = "http://localhost:4200")
 @Tag(name = "Produit", description = "API pour gérer les produits") // Regroupe les endpoints dans Swagger
 public class ProductController {
 
@@ -114,7 +113,6 @@ public class ProductController {
             summary = "Rechercher un produit",
             description = "Rechercher un produit par mot-clé et site."
     )
-    @PreAuthorize("isAuthenticated()")
     @GetMapping("/search")
     public ResponseEntity<List<Product>> searchProducts(
             @Parameter(description = "Produit à rechercher", example = "Soumission")
